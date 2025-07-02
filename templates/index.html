@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>National Sports Day 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"  rel="stylesheet">
+  <style>
+    .hero-bg {
+      background-image: url("static/images/banner5 copy.png");
+      background-size: cover;
+      background-position: center;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* .tricolor-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 102, 0, 0.6),
+        rgba(255, 255, 255, 0.9),
+        rgba(19, 136, 8, 0.6)
+      );
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      backdrop-filter: blur(3px);
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    } */
+
+    .chakra-btn {
+      background-color: #0f3f8f;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+    }
+
+    .chakra-btn:hover {
+      background-color: #1251b5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-register {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      background-color: #0f3f8f;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+      display: none;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 768px) {
+      .floating-register {
+        display: block;
+      }
+    }
+
+    .saffron-strip {
+      background-color: #ff6600;
+      height: 6px;
+    }
+
+    .green-border {
+      border-bottom: 4px solid #138808;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Top Saffron Strip -->
+  <div class="saffron-strip w-full"></div>
+
+  <!-- Header -->
+  <header class="bg-white text-[#0f3f8f] py-4 shadow-md sticky top-0 z-50 green-border">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/NIELIT_Logo.jpg"  alt="Institute Logo" class="h-10 object-contain">
+        <h1 class="text-l md:text-l font-bold">Sports Day 2025</h1>
+      </div>
+      <nav class="space-x-4 md:space-x-6 text-sm md:text-base">
+        <a href="/" class="hover:underline">Home</a>
+        <a href="/register" class="hover:underline">Register</a>
+        <a href="/gallery" class="hover:underline">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white px-4 pb-6" data-aos="fade-up">
+    <!-- <div class="tricolor-overlay mx-auto bg-white rounded-xl p-10 shadow-lg"> -->
+      <!-- <h2 class="text-3xl md:text-4xl font-extrabold mb-2 text-[#0f3f8f]">National Sports Day 2025</h2> -->
+      <!-- <p class="text-base md:text-lg mb-4 text-gray-700 font-semibold">Celebrate the spirit of unity and sportsmanship!</p> -->
+    </div>
+  </section>
+  <div class="relative h-[50px]">
+  <!-- Other content -->
+
+  <a href="/register" class="chakra-btn absolute bottom-6 left-1/2 transform -translate-x-1/2">
+    Register Now
+  </a>
+</div>
+
+
+  <!-- Countdown Timer -->
+  <section class="text-center pt-6 pb-10" data-aos="fade-up">
+    <h3 class="text-2xl font-bold text-[#0f3f8f] mb-4">⏳ Countdown to the Big Day</h3>
+    <div id="countdown" class="text-3xl font-bold text-[#138808]"></div>
+  </section>
+
+  <!-- Sports Grid -->
+  <section class="bg-white py-10 px-4" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-10 text-[#0f3f8f]">Choose Your Event</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for sport, image in sports.items() %}
+        <a href="{{ url_for('register', sport=sport) }}" class="block border-2 border-[#138808] rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+          <img src="{{ image }}" alt="{{ sport }}" class="w-full h-60 object-cover">
+          <h4 class="mt-3 mb-4 text-lg font-semibold text-[#ff6600]">{{ sport }}</h4>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fun Facts -->
+  <section class="bg-[#f7f7f7] py-12 px-6" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-bold text-[#ff6600] mb-6">🇮🇳 Did You Know?</h3>
+      <ul class="space-y-4 text-lg text-gray-700">
+        <li>National Sports Day is celebrated on August 29, the birth anniversary of Major Dhyan Chand.</li>
+        <li>🏑 Major Dhyan Chand was known as the "Wizard of Hockey".</li>
+        <li>🎖️ India has won 8 Olympic gold medals in field hockey, the highest by any team.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Animated Flag Wave (SVG) -->
+  <section class="w-full overflow-hidden bg-white">
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="none" class="w-full h-20">
+      <path d="M0,0 C300,100 900,0 1200,100 L1200,200 L0,200 Z" fill="#ff9933">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+        values="M0,0 C300,100 900,0 1200,100 L1200,200 L0,200 Z;
+                M0,0 C400,0 800,100 1200,0 L1200,200 L0,200 Z;
+                M0,0 C300,100 900,0 1200,100 L1200,200 L0,200 Z"/>
+      </path>
+    </svg>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f3f8f] text-white py-4 mt-16 border-t-4 border-[#ff6600]" data-aos="fade-up">
+    <div class="text-center text-sm">&copy; 2025 Sports Day Committee. Jai Hind 🇮🇳</div>
+  </footer>
+
+  <!-- Floating Register Button (Mobile Only) -->
+  <a href="/register" class="floating-register hidden md:hidden">Register Now</a>
+
+  <!-- Countdown Script -->
+  <script>
+    const countdown = document.getElementById('countdown');
+    const eventDate = new Date("2025-08-29T00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
+  <!-- Initialize AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script> 
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+    });
+  </script>
+</body>
+</html>

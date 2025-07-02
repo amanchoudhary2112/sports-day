@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Day Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .wave {
+      background: linear-gradient(135deg, #ff9933 0%, #ffffff 45%, #138808 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0f3f8f;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 9999px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: none;
+    }
+     .custom-orange {
+    background-color: #FF9933;
+     }
+
+
+  </style>
+</head>
+<body class="bg-gray-100 font-sans scroll-smooth">
+
+  <!-- Hero Section -->
+  <header class="wave text-center py-10 shadow-lg">
+    <h1 class="text-4xl font-extrabold text-[#0f3f8f]">📸 Sports Day Gallery</h1>
+    <p class="text-base font-medium text-[#0f3f8f] mt-2">
+      Relive the energy, enthusiasm & moments of glory!
+    </p>
+     <nav class="space-x-4 md:space-x-6 text-sm md:text-base">
+        <a href="/" class="hover:underline text-blue-700 font-bold">Home Page</a>
+      </nav>
+  </header>
+
+  <!-- Gallery Placeholder -->
+  <main class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-[#0f3f8f] mb-6">✨ Glimpses of the Celebration</h2>
+    <div class="h-1 w-24 mx-auto bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-full mb-6"></div>
+
+    <p class="text-lg text-gray-700 mb-8 italic">
+      The memories will last forever — and so will the pictures!
+    </p>
+
+    <!-- Announcement Box -->
+    <div class="rounded-xl border-2 border-[#0f3f8f] shadow-md p-6 bg-gradient-to-br from-[#FF9933] via-white to-[#138808]">
+      <h3 class="text-xl sm:text-2xl font-semibold text-center text-[#0f3f8f] mb-2">
+        The Sports Day Gallery is Coming Soon!
+      </h3>
+      <p class="text-gray-800 font-medium">
+        The photo gallery will go live after the Sports Day 2025 event concludes.
+        <br />
+        Come back here to explore moments of passion, performance, and pride!
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Back to Top Button -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="backToTop" class="back-to-top">
+    ↑ Top
+  </button>
+
+<!-- Footer -->
+<footer class="custom-orange text-center py-6 mt-10 text-sm text-white border-t border-orange-600">
+  &copy; 2025 Annual Sports Day | NIELIT. Jai Hind 🇮🇳
+</footer>
+
+
+
+  <!-- JS: Show Back-to-Top on Scroll -->
+  <script>
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+  </script>
+</body>
+</html>
